@@ -13,7 +13,7 @@ class Post {
 		let dd = d.getDate();
 		let createdDate = `${yyyy}-${mm}-${dd}`;
 
-		let sql = `INSERT INTO posts(title,body,created_at) VALUES('${this.title}', '${this.body}', '${createdDate}')`;
+		let sql = `INSERT INTO posts(title,body,created_at, updated_at) VALUES('${this.title}', '${this.body}', '${createdDate}', '${createdDate}')`;
 
 		const [newPost, _] = await db.execute(sql);
 		return newPost;
