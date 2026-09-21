@@ -7,11 +7,7 @@ class Post {
 	}
 
 	async save() {
-		let d = new Date();
-		let yyyy = d.getFullYear();
-		let mm = d.getMonth() + 1;
-		let dd = d.getDate();
-		let createdDate = `${yyyy}-${mm}-${dd}`;
+		let createdDate = formatDate(new Date());
 
 		let sql = `INSERT INTO posts(title,body,created_at, updated_at) VALUES('${this.title}', '${this.body}', '${createdDate}', '${createdDate}')`;
 
@@ -20,11 +16,7 @@ class Post {
 	}
 
 	async update() {
-		let d = new Date();
-		let yyyy = d.getFullYear();
-		let mm = d.getMonth() + 1;
-		let dd = d.getDate();
-		let updatedDate = `${yyyy}-${mm}-${dd}`;
+		let updatedDate = formatDate(new Date());
 		let sql = `UPDATE posts SET title='${this.title}', body='${this.body}', updated_at='${updatedDate}'  WHERE id=${this.id}`;
 		const [updatedPost, _] = await db.execute(sql);
 		return updatedPost;
@@ -45,6 +37,13 @@ class Post {
 		let sql = `SELECT * FROM posts WHERE id=${id}`;
 		return db.execute(sql);
 	}
+}
+
+function formatDate(date) {
+	let yyyy = date.getFullYear();
+	let mm = date.getMonth() + 1;
+	let dd = date.getDate();
+	return `${yyyy}-${mm}-${dd}`;
 }
 
 module.exports = Post;
