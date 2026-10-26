@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+/* Kopioidut tailwind-tyylit omasta projektista */
+:root {
+  --text: #14232e;
+  --text-muted: #6b7c85;
+  --bg: #eef3f3;
+  --surface: #ffffff;
+  --border: #c9d6dc;
+  --accent: #2f6f8f;
+  --accent-bg: rgba(47, 111, 143, 0.1);
+  --accent-border: rgba(47, 111, 143, 0.5);
+
+  --sans: "Bricolage Grotesque", system-ui, "Segoe UI", Roboto, sans-serif;
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e8f0f3;
+    --text-muted: #a0a0a0;
+    --bg: #0f1a21;
+    --surface: #17262f;
+    --border: #414b51;
+    --accent: #6bb3d3;
+    --accent-bg: rgba(107, 179, 211, 0.15);
+    --accent-border: rgba(107, 179, 211, 0.5);
+  }
+
+  .logoimg {
+    filter: invert(1) brightness(2);
+  }
+}
